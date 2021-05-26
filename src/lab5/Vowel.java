@@ -1,15 +1,15 @@
 package lab5;
 
-public class Vowel implements WordMembers {
-    private char vowel;
+public class Vowel extends WordMembers {
+
 
     public Vowel(char vowel) {
-        this.vowel = vowel;
+        this.set(vowel);
     }
 
 
     @Override
     public String toString() {
-        return vowel + "" ;
+        return this.get() + "" ;
     }
 }

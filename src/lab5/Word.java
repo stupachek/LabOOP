@@ -1,6 +1,6 @@
 package lab5;
 
-public  class Word implements SentenceMembers  {
+public class Word implements SentenceMembers, Comparable<Word> {
     private final WordMembers[] wordMembers;
 
     public Word(String word) {
@@ -15,7 +15,6 @@ public  class Word implements SentenceMembers  {
     }
 
 
-
     @Override
     public String toString() {
         StringBuilder wordString = new StringBuilder();
@@ -25,21 +24,27 @@ public  class Word implements SentenceMembers  {
         return wordString.toString();
     }
 
-    public WordMembers get(int i){
+    public WordMembers get(int i) {
         return wordMembers[i];
     }
-
-
-//    public int length(){
-//        return wordMembers.length;
-//    }
-
-//    @Override
-//    public int compareTo(Word word) {
-//        if(word.get(1)<wordMembers[1].get()) {
-//
-//        }
+    public int length(){
+        return wordMembers.length;
     }
+
+
+    @Override
+    public int compareTo(Word o) {
+        if (o.length()<=1 ||this.length()<=1) {
+            return this.length()-o.length();
+        }
+        if (o.get(1).get() < wordMembers[1].get()) {
+            return 1;
+        } else {
+            return -1;
+        }
+
+    }
+}
 
 
 

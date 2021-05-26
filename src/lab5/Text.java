@@ -1,6 +1,7 @@
 package lab5;
 
 import java.util.ArrayList;
+import java.util.Collections;
 //import java.util.Collections;
 //import java.util.Comparator;
 
@@ -8,7 +9,7 @@ public class Text {
     private final Sentence[] sentences;
 
     public Text(String textString) {
-        String[] sentenceStrings = textString.split("(?<=[?.!])\\s?");
+        String[] sentenceStrings = textString.trim().replaceAll(" +"," ").split("(?<=[?.!])\\s?");
         sentences = new Sentence[sentenceStrings.length];
         for (int i = 0; i < sentenceStrings.length; i++) {
             sentences[i] = new Sentence(sentenceStrings[i]);
@@ -38,19 +39,18 @@ public class Text {
         }
         return arrayListWordVowel;
     }
-// TODO: 24.05.2021 перенести  исполнительный метод в класс Word  доделать компаратор 
-//    public String vowelSort(){
-//        ArrayList<Word> arrayListWordVowel = arraySort();
-//        Comparator<Word> anonymousSortByname = new Comparator<Word>(){
-//            public int compare(Word f1,Word f2){
-//                return f1.gets().compareTo(f2.gets());
-//            }
-//        };
-//
-//
-//
-//        return arrayListWordVowel.toString();
-//    }
+
+    public String sortedToString(){
+        StringBuilder result=new StringBuilder();
+        ArrayList<Word> arrayListWordVowel = arraySort();
+        Collections.sort(arrayListWordVowel);
+        for (Word word: arrayListWordVowel){
+            result.append(word.toString()).append(" ");
+        }
+        return result.toString();
+
+    }
+
 
 
 }

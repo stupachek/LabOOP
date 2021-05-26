@@ -1,16 +1,16 @@
 package lab5;
 
-public class Consonant  implements WordMembers{
-    private char consonant;
+public class Consonant  extends WordMembers{
+
 
     public Consonant(char consonant) {
-        this.consonant = consonant;
+        this.set(consonant);
     }
 
 
     @Override
     public String toString() {
-        return consonant + "" ;
+        return this.get() + "" ;
     }
 }
 
